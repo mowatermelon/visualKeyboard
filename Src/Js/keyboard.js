@@ -1,4 +1,4 @@
-var activeId;
+﻿var activeId;
 var write;
 
 function checkWrite() {
@@ -20,7 +20,7 @@ function initkey() {
         activeId = $(this).attr('id');
         //console.log("我获取到input中id为" + activeId + "聚焦啦");
         var p = GetScreenPosition(activeId);
-        console.info(activeId + p.x + "," + p.y + "click");
+        //console.info(activeId + p.x + "," + p.y + "click");
     });
 
 }

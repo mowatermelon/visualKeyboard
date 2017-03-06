@@ -1,15 +1,15 @@
-/*!
- * Common v3.3.7
+﻿/*!
+ * Common v3.3.7 
  */
-*{ padding:0px; margin:0px;}
+*{ padding:0px; margin:0px;}         
 body {
 background: #eee;
 overflow:hidden;
-}
+}           
 .box a{
     text-decoration: none;
 }
-ul li
+ul li 
 {
   list-style:none;
   }
@@ -50,11 +50,19 @@ ul li
    display:inline-block;
    color:rgba(255, 255, 255, 0.9);
    font-family:"宋体";
-  }
-#spanDate{text-align:right;float:right;display:block;}
-
- /*main---------------------------------------------------*/
-#main { margin:50px auto; display:block; /*background:#cceeff;*/}
+  } 
+#spanDate
+{
+    text-align:right;
+    float:right;
+    display:block;
+    font-size:18px;
+    line-height:36px;
+    margin-top:2%;
+    margin-right:3%;
+} 
+ /*main---------------------------------------------------*/     
+#main { margin:100px auto; display:block; /*background:#cceeff;*/} 
 #main .panel{margin-top:10px;}
 .btnMargin{margin:0px 20px;}
 label
@@ -69,18 +77,25 @@ label
 {
    font-size:14px;
     }
-.photo
+.photo 
 {
     border:2px solid rgb(83, 149, 167);
     height:150px;
     display:block;
     }
 
-#main #inputdiv .form-horizontal #sectable,#main .panel-body #listdiv .panel-info .form-horizontal #inputtable{
+#main #inputdiv .form-horizontal #sectable{
     height:100px;
     position:relative;
     overflow-y:auto;
     overflow-x:hidden;
+}
+#main .panel-body #listdiv .panel-info .form-horizontal #inputtable{
+    height:155px;
+    position:relative;
+    overflow-y:auto;
+    overflow-x:hidden;
+    margin-top:20px;
 }
 
 #queryClass{
@@ -91,31 +106,35 @@ label
 }
 
 /*footer---------------------------------------------------*/
-#footer .navbar-default
+#footer .navbar-default 
 {
     background:#80ccff;
     margin-top:50px;
     box-shadow:-2px 0px 10px #000;
-    }
+    } 
 .panel-footer .btn{margin:0px 20px;}
 
-.panel-footer .btn-primary
+.panel-footer .btn-primary  
 {
     font-size:14pt;
     padding:5px 12px;
     }
- .panel-footer .btn-fagree
+ .panel-footer .btn-fagree  
 {
     float:right;
-    }
- .panel-footer .btn-freturn
+    } 
+ .panel-footer .btn-freturn 
 {
     float:left;
-    }
+    }      
 #inputdiv .panel-footer,#listdiv .panel-footer{height:50px;}
 
 
-
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
 
 .time-item
 {

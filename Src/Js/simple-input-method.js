@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 简单的JS版输入法，拿来玩玩还而已，没有多大实际使用意义
  * simple-input-method.js
  */
@@ -84,7 +84,7 @@ var SimpleInputMethod = {
             var preventDefault = false;
             //var keyCode = e.keyCode;
             var keyCode = data.charCodeAt();
-            console.log("data.charCodeAt()" + keyCode);
+            //console.log("data.charCodeAt()" + keyCode);
             if (keyCode >= 97 && keyCode <= 122) // a-z
             {
                 that.addChar(String.fromCharCode(keyCode), obj);

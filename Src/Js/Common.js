@@ -46,10 +46,10 @@ $(function () {
         var hour = time.getHours();
         var minutes = time.getMinutes();
         var second = time.getSeconds();
-
+	
 
         month < 10 ? month = '0' + month : month;
-
+	date < 10 ? date = '0' + date: date;
         hour < 10 ? hour = '0' + hour : hour;
         minutes < 10 ? minutes = '0' + minutes : minutes;
         second < 10 ? second = '0' + second : second;
