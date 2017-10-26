@@ -3,7 +3,8 @@ var write;
 
 function checkWrite() {
     //console.log("我要做个验证啦");
-    write = $("#sectable .form-group>.col-sm-3>input:text");
+    //write = $("#sectable .form-group>.col-sm-3>input:text");
+    write = $(".inputdiv .TXXX input[type='text']");
     //console.log("write.length是" + write.length);
     if (write.length == 2) {
         initkey();
@@ -19,7 +20,7 @@ function initkey() {
     write.click(function () {
         activeId = $(this).attr('id');
         //console.log("我获取到input中id为" + activeId + "聚焦啦");
-        var p = GetScreenPosition(activeId);
+        //var p = GetScreenPosition(activeId);
         //console.info(activeId + p.x + "," + p.y + "click");
     });
 

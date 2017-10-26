@@ -11,7 +11,7 @@ var SimpleInputMethod = {
     // 当前匹配到的汉字集合
     pageCurrent: 1,
     // 当前页
-    pageSize: 5,
+    pageSize: 3,
     // 每页大小
     pageCount: 0,
     // 总页数
@@ -44,9 +44,7 @@ var SimpleInputMethod = {
         var parentdiv = $('<div></div>');        //创建一个父div
         parentdiv.attr('id', 'simle_input_method');        //给父div设置id
         parentdiv.attr('class', 'simple-input-method');    //添加css样式
-        var childdiv = $('<div class = "pinyin"></div><div class="result"><ol></ol> <div class = "page-up-down"> <span class = "page-up"> ▲ </span><span class="page-down">▼</span> </div></div> ');        //创建一个子div
-        /*childdiv.attr('id','child');            //给子div设置id
-        childdiv.addclass('childdiv');    //添加css样式*/
+        var childdiv = $('<div class = "pinyin"></div><div class="result"><ol></ol> <div class = "page-up-down"> <span class = "page-up disabled"> ▲ </span><span class="page-down disabled">▼</span> </div></div> ');        //创建一个子div
         parentdiv.html(childdiv);
         var that = this;
         // 初始化汉字选择和翻页键的点击事件
@@ -54,10 +52,10 @@ var SimpleInputMethod = {
             var target = e.target;
             if (target.nodeName == 'LI') that.selectHanzi(parseInt(target.dataset.idx));
             else if (target.nodeName == 'SPAN') {
-                if (target.className == 'page-up' && that.pageCurrent > 1) {
+                if (target.className.indexOf('page-up')>-1 && that.pageCurrent > 1) {
                     that.pageCurrent--;
                     that.refreshPage();
-                } else if (target.className == 'page-down' && that.pageCurrent < that.pageCount) {
+                } else if (target.className.indexOf('page-down')>-1 && that.pageCurrent < that.pageCount) {
                     that.pageCurrent++;
                     that.refreshPage();
                 }
@@ -72,19 +70,14 @@ var SimpleInputMethod = {
     init: function (inputObj, data) {
         this.initDict();
         this.initDom();
-        //obj = $(inputObj);
         this._target = $('#simle_input_method');
         this._pinyinTarget = $('#simle_input_method .pinyin');
-        //this._pinyinTarget = document.querySelector('#simle_input_method .pinyin');
         this._resultTarget = $('#simle_input_method .result ol');
         var that = this;
         obj = $("#"+inputObj);
         for (var i = 1; i <= obj.length; i++) {
-            //obj[i].addEventListener('keydown', function(e) {
             var preventDefault = false;
-            //var keyCode = e.keyCode;
             var keyCode = data.charCodeAt();
-            //console.log("data.charCodeAt()" + keyCode);
             if (keyCode >= 97 && keyCode <= 122) // a-z
             {
                 that.addChar(String.fromCharCode(keyCode), obj);
@@ -215,10 +208,32 @@ var SimpleInputMethod = {
         temp.forEach(function (val) {
             html += '<li data-idx="' + (++i) + '">' + val + '</li>';
         });
-        /*this._target.querySelector('.page-up').style.opacity = this.pageCurrent > 1 ? '1' : '.3';
-        this._target.querySelector('.page-down').style.opacity = this.pageCurrent < this.pageCount ? '1' : '.3';*/
-        this._target.children(".page-up").css({ "opacity": this.pageCurrent > 1 ? '1' : '.3' });
-        this._target.children(".page-down").css({ "opacity": this.pageCurrent < this.pageCount ? '1' : '.3' });
+        var isDisUp = this._target.find(".page-up").hasClass("disabled");
+        var isDisDown = this._target.find(".page-down").hasClass("disabled");
+        // console.log(this.pageCurrent);
+        // console.log(this.pageCount);
+        // console.log(isDisUp);
+        // console.log(isDisDown);       
+        if(this.pageCurrent == 1){
+            if(isDisDown){
+                this._target.find(".page-down").removeClass("disabled");                
+            }
+            if(!isDisUp){
+                this._target.find(".page-up").addClass("disabled");                            
+            }             
+        }else  if(this.pageCurrent > 1){
+            if(isDisUp){
+                this._target.find(".page-up").removeClass("disabled");                            
+            }            
+        }
+
+        if(this.pageCurrent >= this.pageCount){
+            if(!isDisDown){
+                this._target.find(".page-down").addClass("disabled");                            
+            }            
+        }        
+        // this._target.children(".page-up").css({ "opacity": this.pageCurrent > 1 ? '1' : '0' });
+        // this._target.children(".page-down").css({ "opacity": this.pageCurrent < this.pageCount ? '1' : '0' });
         this._resultTarget.html(html);
     },
     addChar: function (ch, obj) {

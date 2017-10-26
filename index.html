@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>虚拟键盘</title>    
+    <link href="Css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Css/index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="main" class="container">
+        <div class="panel panel-info"  id="inputdiv">
+            <div class="panel-heading">                 
+                <span class="panel-title">信息输入</span>
+
+            </div>
+            <div class="panel-body">
+                <ol class="h5">
+                    <li>这是一个支持中英文输入的虚拟键盘项目</li>
+                    <li>在英文状态下，可以点击按钮切换大小写</li>
+                    <li>可以通过键盘删除键误输入的内容</li>
+										<li>中文输入法皮肤是根据我本人绰号写的一个输入法皮肤</li>
+										<li>可以新增和删除input组，删除会有弹窗确认提示，这个弹窗是我自己写的一个集成插件</li>
+                </ol>
+                <div class="inputdiv">
+											<div class="TXXX">
+												<div  class="input-group col-xs-12 col-sm-6">
+													<label for="inputName" class="input-group-addon bg-info">姓名</label>
+														<input type="text" class="form-control test-input-method" id='name_0' placeholder="请输入你的姓名" name="inputName">
+												</div>
+												<div  class="input-group col-xs-12 col-sm-5">
+														<label for="inputId" class="input-group-addon bg-info">年龄</label>
+														<input type="text" class="form-control test-input-method" id='year_0' placeholder="请输入你的年龄"  name="inputId">
+												</div>
+												<input type="button" class="btn btn-info col-xs-12 col-sm-1 btn_addmore" value="新增" />                                       
+											</div>
+                </div>               
+            </div>
+
+        </div>
+        <!--                                                                        键盘div-->
+        <div id="keyboard">
+                <button type="button" class="btn btn-block" id="btn-diappear">点击隐藏键盘</button>
+                <ul id="boardword">
+                    <li class="gray firstitem">1</li>
+
+                    <li class="gray">2</li>
+
+                    <li class="gray">3</li>
+
+                    <li class="gray">4</li>
+
+                    <li class="gray">5</li>
+
+                    <li class="gray">6</li>
+
+                    <li class="gray">7</li>
+
+                    <li class="gray">8</li>
+
+                    <li class="gray">9</span></li>
+
+                    <li class="gray">0</li>
+
+                    <li class="letter firstitem">q</li>
+
+                    <li class="letter">w</li>
+
+                    <li class="letter">e</li>
+
+                    <li class="letter">r</li>
+
+                    <li class="letter">t</li>
+
+                    <li class="letter">y</li>
+
+                    <li class="letter">u</li>
+
+                    <li class="letter">i</li>
+
+                    <li class="letter">o</li>
+
+                    <li class="letter">p</li>
+
+                    <li class="firstitem capslock gray">大写</li>
+
+                    <li class="letter">a</li>
+
+                    <li class="letter">s</li>
+
+                    <li class="letter">d</li>
+
+                    <li class="letter">f</li>
+
+                    <li class="letter">g</li>
+
+                    <li class="letter">h</li>
+
+                    <li class="letter">j</li>
+
+                    <li class="letter">k</li>
+
+                    <li class="letter">l</li>
+
+                    <li class="firstitem left-shift gray">中</li>
+
+                    <li class="letter">z</li>
+
+                    <li class="letter">x</li>
+
+                    <li class="letter">c</li>
+
+                    <li class="letter">v</li>
+
+                    <li class="letter">b</li>
+
+                    <li class="letter">n</li>
+
+                    <li class="letter">m</li>
+
+                    <li class="right-shift lastitem delete gray">删除</li>
+
+                </ul>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+<script src="Js/jquery-3.1.1.js" type="text/javascript"></script>
+<script src="Js/dict/pinyin_dict_notone.js" type="text/javascript"></script>
+<script src="Js/pinyinUtil.js" type="text/javascript"></script>
+<script src="Js/simple-input-method.js" type="text/javascript"></script>
+<script src="Js/bootstrap.min.js" type="text/javascript"></script>
+<script src="Js/keyboard.js" type="text/javascript"></script>
+<script type="text/javascript" >
+    $(function () {
+			//判断是否加载哪个版本的modaljs
+			if(isPC()){
+						loadScript("js/pcmodal.js?v=20171026");
+				}else{
+						loadScript("js/modal.js");
+			}	
+			//初始化键盘事件		
+			checkWrite();
+			initkey();
+			
+			//绑定新增事件
+      $(".btn_addmore").click(function () {
+          AddInput();
+          checkWrite();
+			});
+
+			//处理键盘样式高度问题
+			$("#keyboard").height($("#keyboard").height()+20);
+			$("#keyboard").attr("cheight",$("#keyboard").height()+20);
+
+			//绑定折叠事件
+      $("#btn-diappear").click(function () {
+          if ($(this).html() == "点击隐藏键盘") {
+							if(!$("#boardword").hasClass("hide")){
+								$("#boardword").addClass("hide");                
+							}							
+              var btnH = $(this).height() + 30;
+              //console.log("修改的键盘高度" + btnH);
+              $("#keyboard").css({ "height": btnH },{"background-color":"transparent"});
+              $(this).html("点击显示键盘");
+          } else if ($(this).html() == "点击显示键盘") {
+							if($("#boardword").hasClass("hide")){
+								$("#boardword").removeClass("hide");                
+							}							
+              $("#keyboard").css({ "height": $("#keyboard").attr("cheight") + 'px' },{"background-color":"#d4d5da"});
+              $(this).html("点击隐藏键盘");
+          }
+
+      });
+  })
+
+    //判断当前是pc端还是移动端
+    function isPC(){
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+                    "SymbianOS", "Windows Phone",
+                    "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+    // 动态加载相关js文件
+    function loadScript(url) {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = url;
+        document.body.appendChild(script);
+		}
+		
+    //添加input组
+    function AddInput() {
+        var strXH = $(".inputdiv .TXXX").length;
+				var sRand = Math.random().toString(5).substr(2);
+				var strVar = "                            <div  class='TXXX input_" + sRand + "'>\n"; 
+				strVar += "	<div class='input-group col-xs-12 col-sm-6'>\n";
+				strVar += "		<label for='inputName' class='input-group-addon bg-info'>姓名</label>\n";
+				strVar += "		<input type='text' class='form-control test-input-method' id='name"+sRand+"' placeholder='请输入你的姓名' name='inputName'>\n";
+				strVar += "	</div>\n";
+				strVar += "	<div class='input-group col-xs-12 col-sm-5'>\n";
+				strVar += "		<label for='inputId' class='input-group-addon bg-info'>年龄</label>\n";
+				strVar += "		<input type='text' class='form-control test-input-method' id='year"+sRand+"'  placeholder='请输入你的年龄' name='inputId'>\n";
+				strVar += "	</div>\n";
+				strVar += "	<input type='button' class='btn btn-info col-xs-12 col-sm-1 delGSYR' value='删除' onclick='deleteInput(\"" + sRand + "\")'>\n";
+				strVar += "</div>\n";				
+        $(".inputdiv .TXXX").eq(strXH-1).after(strVar);
+    }
+
+    //删除按份共有的所有人
+    function deleteInput(sRand) {
+        showmodal({
+            content: "确定删除这条记录吗？",
+            Qclose: true,
+            callbackB: true,
+            callbackBF:function(){
+							//console.log($(".inputdiv .TXXX.input_" + sRand).html());
+							$(".inputdiv .TXXX.input_" + sRand).remove();
+							return true;
+            }
+        });        
+    }
+</script>
+</html>
