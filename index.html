@@ -141,14 +141,14 @@
     $(function () {
 			//判断是否加载哪个版本的modaljs
 			if(isPC()){
-						loadScript("js/pcmodal.js?v=20171026");
+						loadScript("Js/pcmodal.js?v=20171026");
 				}else{
-						loadScript("js/modal.js");
+						loadScript("Js/modal.js");
 			}	
 			//初始化键盘事件		
 			checkWrite();
 			initkey();
-			
+
 			//绑定新增事件
       $(".btn_addmore").click(function () {
           AddInput();
