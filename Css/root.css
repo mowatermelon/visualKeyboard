@@ -1,0 +1,117 @@
+/*
+    design for project by WU EVA
+*/
+/*清除相关浏览器默认样式hacker            */
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color:#fff !important;
+    background-image: none;
+    color: rgb(0, 0, 0);
+    -webkit-box-shadow: 0 0 0px 1000px white inset; 
+    box-shadow: 0 0 0px 1000px white inset;           
+}
+.input-group{
+	margin-bottom: 1em;
+}
+.input-group-addon,.form-control{
+	/*border:1px solid  #ffb2b2;*/
+}
+.h5{
+	line-height: 1.5;
+	/*color:#ffb2b2;*/
+}
+.TXXX{
+	margin-bottom: 1em;
+}
+/*toggle键盘显示按钮的样式*/
+#btn-diappear {
+	float: right;
+	/*background-color: #fff;
+    border: 1px solid #fff;*/
+	outline: 0 none;
+	clear: both;
+}
+/*键盘       ------------------------------------------------------- */
+#keyboard {
+	position: fixed;
+	z-index: 9999;
+	bottom: 0.8%;
+	left: 0;
+	right: 0;
+	margin: 0px;
+	width: 100%;
+	list-style: none;
+	background-color: #d4d5da;
+	padding-left: 0.1em;
+	padding-top: 0.1em;
+	font-size: 100px;
+	/*height: 330px;*/
+	-webkit-text-size-adjust: none;
+	
+}
+
+#keyboard ul li {
+	float: left;
+	margin: 1% 1.2% 0 0;
+	width: 8.7%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #fff;
+	font-size: 18px;
+	font-weight: bolder;
+	background-color: rgba(255, 255, 255, .8);
+	box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, .5);
+	list-style:none;
+	-moz-border-radius: 0.5em;
+ /* Firefox */
+	-webkit-border-radius: 0.5em;
+ /* Safari �� Chrome */
+	border-radius: 0.5em;
+ /* Opera 10.5+, �Լ�ʹ����IE-CSS3��IE����� */
+	behavior: url("Src/Js/ie-css3.htc");
+ /* ֪ͨIE��������ýű�������'box'�� */
+}
+
+#keyboard #boardword {
+	clear: both;
+	width: 100%;
+	padding: 0;
+}
+
+#keyboard ul li.gray {
+	background-color: #acb3bd;
+}
+
+.capslock, .tab, .left-shift {
+	clear: left;
+}
+
+#keyboard .firstitem {
+	margin-left: 0.8%;
+}
+
+#keyboard .delete {
+	font-size: 1.5rem;
+	width: 14%;
+}
+
+#keyboard .left-shift {
+	width: 13%;
+}
+
+.lastitem {
+	margin-right: 0;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+#keyboard li:hover {
+	box-shadow: 0px 0px 0px rgb(16, 252, 210);
+	top: 1px;
+	left: 1px;
+	cursor: pointer;
+}
+
+
