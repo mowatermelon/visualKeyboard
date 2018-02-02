@@ -1,0 +1,95 @@
+
+/*中文输入皮肤         ------------------------------------------------------- */
+.simple-input-method {
+  position: absolute;
+  background: #FFF;
+  font-family: 'Arial';
+  color: #8a8c8b;
+  display: none;
+  border-radius: 1em;
+}
+
+.simple-input-method .pinyin,.simple-input-method .result {
+  background-color: #fff;
+}
+.simple-input-method .pinyin {
+  border-radius: 5px 5px 0 0;
+  border: solid 1px #353535;
+  box-shadow: 1px 1px 1px #353535;
+  border-bottom: 0 none;
+  padding: 4px 10px;
+  font-weight: bold;
+}
+
+.simple-input-method .pinyin::after {
+  content: '';
+  position: absolute;
+  right: 42%;
+  top: 2.2em;
+  bottom: auto;
+  left: 0.6em;
+  height: 1px;
+  width: calc(100% - 6em);
+  background-color: #353535;
+}
+
+.simple-input-method .result::before {
+  float: right;
+  content: '';
+  width: 4em;
+  height: 3.5em;
+  margin-top: -1.7em;
+  background-repeat: no-repeat;
+  background-image: url(../img/icon/coding.png);
+  background-position: right center;
+  background-size: 100% 100%;
+}
+
+
+.simple-input-method .result {
+  border-radius: 0 0 5px 5px;
+  border: solid 1px #353535;
+  border-top:0 none;
+  box-shadow: 1px 1px 1px #353535;
+  padding: 4px 10px 4px 0px;
+  z-index: 1;
+}
+
+.simple-input-method .result ol {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+.simple-input-method .result ol:after {
+  content: '';
+  display: block;
+  clear: left;
+}
+.simple-input-method .result ol li {
+  float: left;
+  margin-left: 30px;
+  cursor: pointer;
+}
+.simple-input-method .result ol li:first-child {
+  color: #353535;
+}
+.simple-input-method .page-up-down {
+  display: inline-block;
+  font-size: 20px;
+  color: #353535;
+  border-radius: 1px;
+  margin-left: 10px;
+}
+
+.simple-input-method .page-up-down span {
+  display:inline-block;
+  cursor: pointer;
+  -webkit-transform: rotate(-90deg);  
+  -moz-transform: rotate(-90deg);  
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);         
+}
+.simple-input-method .page-up-down span.disabled {
+  opacity: .3;
+  color: #8a8c8b;
+}
