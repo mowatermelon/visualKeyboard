@@ -29,19 +29,19 @@
   bottom: auto;
   left: 0.6em;
   height: 1px;
-  width: 68%;
+  width: 88%;
   background-color: #353535;
 }
 
 .simple-input-method .result::before {
   position: absolute;
   content: '';
-  width: 4.6em;
+  width: 5.3em;
   height: 4em;
-  top: -2.2em;
-  right: 0.5em;
+  top: -3.5em;
+  right: 0;
   background-repeat: no-repeat;
-  background-image: url(../img/icon/coding_fill.png);
+  background-image: url(../img/icon/coding_hand.png);
   background-position: right center;
   background-size: 100% 100%;
 }
