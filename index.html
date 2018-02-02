@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>虚拟键盘</title>    
     <link href="Css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="Css/index.css" rel="stylesheet" type="text/css" />
+    <link href="Css/root.css" rel="stylesheet" type="text/css" />
+    <link href="Css/coding_2.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="main" class="container">
@@ -19,23 +20,26 @@
             <div class="panel-body">
                 <ol class="h5">
                     <li>这是一个支持中英文输入的虚拟键盘项目</li>
+                    <li>默认是中文输入法</li>                    
                     <li>在英文状态下，可以点击按钮切换大小写</li>
                     <li>可以通过键盘删除键误输入的内容</li>
-										<li>中文输入法皮肤是根据我本人绰号写的一个输入法皮肤</li>
-										<li>可以新增和删除input组，删除会有弹窗确认提示，这个弹窗是我自己写的一个集成插件</li>
+                    <li>可以新增和删除input组，删除会有弹窗确认提示，这个弹窗是我自己写的一个集成插件</li>
+                    <li>默认中文输入法皮肤是coding皮肤(coding_1.css,coding_2.css,coding_3.css)</li>
+                    <li>还有酷狗简单皮肤(kugou.css)</li>
+                    <li>还有西瓜酱皮肤(melon.css)</li>
                 </ol>
                 <div class="inputdiv">
-											<div class="TXXX">
-												<div  class="input-group col-xs-12 col-sm-6">
-													<label for="inputName" class="input-group-addon bg-info">姓名</label>
-														<input type="text" class="form-control test-input-method" id='name_0' placeholder="请输入你的姓名" name="inputName">
-												</div>
-												<div  class="input-group col-xs-12 col-sm-5">
-														<label for="inputId" class="input-group-addon bg-info">年龄</label>
-														<input type="text" class="form-control test-input-method" id='year_0' placeholder="请输入你的年龄"  name="inputId">
-												</div>
-												<input type="button" class="btn btn-info col-xs-12 col-sm-1 btn_addmore" value="新增" />                                       
-											</div>
+                    <div class="TXXX">
+                        <div  class="input-group col-xs-12 col-sm-6">
+                            <label for="inputName" class="input-group-addon bg-info">姓名</label>
+                                <input type="text" class="form-control test-input-method" id='name_0' placeholder="请输入你的姓名" name="inputName">
+                        </div>
+                        <div  class="input-group col-xs-12 col-sm-5">
+                                <label for="inputId" class="input-group-addon bg-info">年龄</label>
+                                <input type="text" class="form-control test-input-method" id='year_0' placeholder="请输入你的年龄"  name="inputId">
+                        </div>
+                        <input type="button" class="btn btn-info col-xs-12 col-sm-1 btn_addmore" value="新增" />                                       
+                    </div>
                 </div>               
             </div>
 
