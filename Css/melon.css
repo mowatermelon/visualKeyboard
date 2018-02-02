@@ -1,0 +1,68 @@
+
+/*中文输入皮肤         ------------------------------------------------------- */
+.simple-input-method {
+  position: absolute;
+  background: #FFF;
+  border: solid 1px #fdebeb;
+  font-family: 'Arial';
+  color: #8a8c8b;
+  display: none;
+  background-color: #fdebeb;
+  background-repeat: no-repeat;
+  background-image: url(../img/icon/melon.png);
+  background-position: right center;
+  background-size: 19% 46%;
+  border-radius: 1em;
+  padding: 10px 50px 10px 10px;
+}
+.simple-input-method .pinyin,.simple-input-method .result {
+  background-color: #fff;
+}
+.simple-input-method .pinyin {
+  border-radius: 15% 15% 0 0;
+  border-bottom: solid 1px #B5C5D2;
+  padding: 4px 10px;
+  font-weight: bold;
+}
+.simple-input-method .result {
+  border-radius: 0 0 15% 15% ;
+  padding: 4px 10px 4px 0px;
+}
+.simple-input-method .result ol {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+.simple-input-method .result ol:after {
+  content: '';
+  display: block;
+  clear: left;
+}
+.simple-input-method .result ol li {
+  float: left;
+  margin-left: 30px;
+  cursor: pointer;
+}
+.simple-input-method .result ol li:first-child {
+  color: #ffb2b2;
+}
+.simple-input-method .page-up-down {
+  display: inline-block;
+  font-size: 20px;
+  color: #ffb2b2;
+  border-radius: 1px;
+  margin-left: 10px;
+}
+
+.simple-input-method .page-up-down span {
+  display:inline-block;
+  cursor: pointer;
+  -webkit-transform: rotate(-90deg);  
+  -moz-transform: rotate(-90deg);  
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);         
+}
+.simple-input-method .page-up-down span.disabled {
+  opacity: .3;
+  color: #8a8c8b;
+}
