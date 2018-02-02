@@ -29,20 +29,20 @@
   bottom: auto;
   left: 0.6em;
   height: 1px;
-  width: calc(100% - 6em);
+  width: calc(100% - 7em);
   background-color: #353535;
 }
 
 .simple-input-method .result::before {
   float: right;
   content: '';
-  width: 4em;
+  width: 5em;
   height: 3.5em;
   margin-top: -1.7em;
   background-repeat: no-repeat;
   background-image: url(../img/icon/coding.png);
   background-position: right center;
-  background-size: 100% 100%;
+  background-size: 95% 100%;
 }
 
 
